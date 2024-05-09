@@ -1,18 +1,25 @@
+const Header = (props) => {
+  return (
+    <>
+      <h1>{props.course}</h1>
+      <h2>{props.part1}</h2>
+      <p>{props.exercises1}</p>
+    </>
+  );
+};
+
 const App = () => {
-  const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14
+  const course = "Half Stack application development";
+  const part1 = "Fundamentals of React";
+  const exercises1 = 10;
+  const part2 = "Using props to pass data";
+  const exercises2 = 7;
+  const part3 = "State of a component";
+  const exercises3 = 14;
 
   return (
     <div>
-      <h1>{course}</h1>
-      <p>
-        {part1} {exercises1}
-      </p>
+      <Header course = {course} part1 = {part1} exercises1 = {exercises1} />
       <p>
         {part2} {exercises2}
       </p>
@@ -21,7 +28,8 @@ const App = () => {
       </p>
       <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
+
