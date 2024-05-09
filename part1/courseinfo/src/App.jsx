@@ -1,35 +1,34 @@
-const Header = (props) => {
-  return (
-    <>
-      <h1>{props.course}</h1>
-      <h2>{props.part1}</h2>
-      <p>{props.exercises1}</p>
-    </>
-  );
-};
+/* eslint-disable react/prop-types */
+import { useState } from "react";
 
 const App = () => {
-  const course = "Half Stack application development";
-  const part1 = "Fundamentals of React";
-  const exercises1 = 10;
-  const part2 = "Using props to pass data";
-  const exercises2 = 7;
-  const part3 = "State of a component";
-  const exercises3 = 14;
+  const [clicks, setClicks] = useState({
+    left: 0,
+    right: 0,
+  });
 
+  const handleRightClicks = () => {
+    const newClicks = {
+      right: clicks.right + 1,
+      left: clicks.left,
+    };
+    setClicks(newClicks);
+  };
+  const handleLeftClicks = () => {
+    const newClicks = {
+      left: clicks.left + 1,
+      right: clicks.right,
+    };
+    setClicks(newClicks);
+  };
   return (
     <div>
-      <Header course = {course} part1 = {part1} exercises1 = {exercises1} />
-      <p>
-        {part2} {exercises2}
-      </p>
-      <p>
-        {part3} {exercises3}
-      </p>
-      <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
+      {clicks.left}
+      <button onClick={handleLeftClicks}>Left</button>
+      <button onClick={handleRightClicks}>Right</button>
+      {clicks.right}
     </div>
   );
 };
-
 export default App;
 
